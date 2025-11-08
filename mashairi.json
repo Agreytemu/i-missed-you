@@ -1,0 +1,102 @@
+
+  [
+  {
+    "title": "Pendo la Milele",
+    "author": "AGREY",
+    "image": "images/pendo_la_milele.jpg",
+    "audio": "audio/pendo_la_milele.mp3",
+    "text": "Nilikuona mara ya kwanza, moyo ukaishiwa na pumzi.\nKila tabasamu lako ni nyota angani,\nNiliahidi moyoni, sitachoka kukupenda,\nHata dunia ikigeuka, wewe unabaki wangu."
+  },
+  {
+    "title": "Chumvi ya Machozi",
+    "author": "AGREY",
+    "image": "images/chumvi_ya_machozi.jpg",
+    "audio": "audio/chumvi_ya_machozi.mp3",
+    "text": "Nililia kwa upendo ulionikwepa,\nLakini machozi yangu yakawa baraka.\nKwa maana ndani ya maumivu,\nNilijifunza kupenda bila masharti."
+  },
+  {
+    "title": "Nimekuzoea",
+    "author": "AGREY",
+    "image": "images/nimekuzoea.jpg",
+    "audio": "audio/nimekuzoea.mp3",
+    "text": "Nimekuzoea kama pumzi ya asubuhi,\nKama jua linavyokumbatia dunia.\nSasa hata kimya chako ni muziki,\nNa jina lako limekolea kwenye damu yangu."
+  },
+  {
+    "title": "Usiku wa Ndoto",
+    "author": "AGREY",
+    "image": "images/usiku_wa_ndoto.jpg",
+    "audio": "audio/usiku_wa_ndoto.mp3",
+    "text": "Nilipokulota, nilicheka kimya kimya,\nUlikuwa kama upepo wa bahari.\nNilipoamka, moyo wangu ulibaki na harufu yako,\nNdoto ikawa halisi moyoni mwangu."
+  },
+
+  {
+    "title": "Mwanga wa Asubuhi",
+    "author": "AGREY",
+    "image": "images/asubuhi.jpg",
+    "audio": "audio/mwanga_wa_asubuhi.mp3",
+    "text": "Jua limechomoza, dunia imeamka,\nKila pumzi ni zawadi mpya.\nNatazama anga, rangi za matumaini,\nNashukuru uhai huu, uliojaa baraka."
+  },
+  {
+    "title": "Mapenzi ya Ukweli",
+    "author": "AGREY",
+    "image": "images/mapenzi.jpg",
+    "audio": "audio/mapenzi_ya_ukweli.mp3",
+    "text": "Mapenzi si maneno, ni matendo,\nNi kutabasamu hata penye maumivu.\nNi kushikana mikono kwenye dhoruba,\nNi moyo, si sura, unaoshinda muda."
+  },
+  {
+    "title": "Kilio cha Bahari",
+    "author": "AGREY",
+    "image": "images/bahari.jpg",
+    "audio": "audio/kilio_cha_bahari.mp3",
+    "text": "Mawimbi yananong’ona siri za kale,\nYakigonga miamba kwa hasira na huzuni.\nBahari inanena, lakini nani asikie?\nNdani yake, machozi ya dunia nzima."
+  },
+  {
+    "title": "Ndoto Zangu",
+    "author": "AGREY",
+    "image": "images/ndoto.jpg",
+    "audio": "audio/ndoto_zangu.mp3",
+    "text": "Nililala nikaota, dunia isiyo na chuki,\nAmbapo mioyo haina mipaka wala hofu.\nNilipoamka, machozi yalinibubujika,\nKwa maana ndoto zangu, bado ni ndoto."
+  },
+  {
+    "title": "Ujasiri",
+    "author": "AGREY",
+    "image": "images/ujasiri.jpg",
+    "audio": "audio/ujasiri.mp3",
+    "text": "Usiogope kuanguka, anguko ni mwalimu.\nSimama tena, jifute vumbi.\nKila alama ya jeraha ni ushahidi,\nKwamba ulipambana, haukukimbia."
+  },
+  {
+    "title": "Moyo wa Mwanadamu",
+    "author": "AGREY",
+    "image": "images/moyo.jpg",
+    "audio": "audio/moyo_wa_mwanadamu.mp3",
+    "text": "Ndani ya moyo kuna vita visivyoonekana,\nMapambano ya tamaa na hekima.\nNi nani atashinda? Ni yule anayejua,\nKupenda, kusamehe, na kustahimili."
+  },
+  {
+    "title": "Safari ya Maisha",
+    "author": "AGREY",
+    "image": "images/safari.jpg",
+    "audio": "audio/safari_ya_maisha.mp3",
+    "text": "Tunasafiri wote, njia zetu ni tofauti.\nMwingine hupita jangwani, mwingine majini.\nLakini mwisho wa safari ni mmoja,\nAmani ya roho iliyoishi kwa upendo."
+  },
+  {
+    "title": "Nuru ya Upendo",
+    "author": "AGREY",
+    "image": "images/nuru.jpg",
+    "audio": "audio/nuru_ya_upendo.mp3",
+    "text": "Upendo ni taa gizani, huangaza mioyo.\nHaufi, hauchuji, hauchoki.\nNi moto wa milele unaowaka polepole,\nUkileta joto hata kwa walio baridi."
+  },
+  {
+    "title": "Chini ya Mti wa Mbuyu",
+    "author": "AGREY",
+    "image": "images/mbuyu.jpg",
+    "audio": "audio/chini_ya_mbuyu.mp3",
+    "text": "Nilikaa chini ya mbuyu wa kijiji chetu,\nNikakumbuka hadithi za babu.\nKila tawi liliongea nami,\nLikaniambia: 'Muda hupita, hekima hubaki.'"
+  },
+  {
+    "title": "Wimbo wa Tumaini",
+    "author": "AGREY",
+    "image": "images/tumaini.jpg",
+    "audio": "audio/wimbo_wa_tumaini.mp3",
+    "text": "Usikate tamaa, hata giza linapozidi.\nKuna nyota nyuma ya mawingu.\nTumaini ni mbegu ya kesho bora,\nLimea ndani yako, lisife kamwe."
+  }
+]

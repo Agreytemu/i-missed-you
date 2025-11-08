@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kumbukumbu - Coming Soon</title>
+  <style>
+    :root {
+      --pink: #ff3c8b;
+      --gold: #f5c46b;
+      --dark: #0f0f0f;
+      --white: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, var(--dark), #1a001a);
+      color: var(--white);
+      font-family: "Poppins", sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      text-align: center;
+    }
+
+    /* Hearts (Kopa Kopa) Animation */
+    .heart {
+      position: absolute;
+      bottom: -10px;
+      color: var(--pink);
+      font-size: 20px;
+      opacity: 0.8;
+      animation: floatUp 6s linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-110vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    .content {
+      z-index: 2;
+      max-width: 600px;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: var(--gold);
+      margin-bottom: 10px;
+      letter-spacing: 1.5px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: var(--white);
+      opacity: 0.9;
+      margin-bottom: 25px;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .countdown div {
+      background: rgba(255,255,255,0.1);
+      padding: 15px 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .countdown span {
+      display: block;
+      font-size: 2rem;
+      color: var(--pink);
+      font-weight: bold;
+    }
+
+    .countdown small {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      color: var(--gold);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>💞 COMING SOON💞</h1>
+    <p>Tovuti yetu ya mapenzi iko mbioni kuja...  
+      utapata kumbukumbu zote za hisia zetu 💫</p>
+
+    <div class="countdown">
+      <div><span id="days">00</span><small>Siku</small></div>
+      <div><span id="hours">00</span><small>Saa</small></div>
+      <div><span id="minutes">00</span><small>Dakika</small></div>
+      <div><span id="seconds">00</span><small>Sekunde</small></div>
+    </div>
+  </div>
+
+  <footer>© <span id="year"></span> Missing You | Coming Soon 💘</footer>
+
+  <script>
+    // Generate floating hearts
+    function createHearts() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+      heart.textContent = '💗';
+      heart.style.animationDuration = (3 + Math.random() * 3) + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHearts, 250);
+
+    // Countdown
+    const launchDate = new Date();
+    launchDate.setDate(launchDate.getDate() + 100); // siku 7 mbele
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const diff = launchDate - now;
+      if (diff <= 0) {
+        clearInterval(timer);
+        document.querySelector(".countdown").innerHTML = "<h3>Tupo Hewani 💞</h3>";
+        return;
+      }
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById("days").textContent = d;
+      document.getElementById("hours").textContent = h;
+      document.getElementById("minutes").textContent = m;
+      document.getElementById("seconds").textContent = s;
+    }, 1000);
+
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

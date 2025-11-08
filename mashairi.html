@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mashairi ya AGREY</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #1a1a1a, #e91e63);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background: rgba(255,255,255,0.1);
+      width: 100%;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(6px);
+    }
+
+    h1 {
+      color: #bfa14a;
+      margin-bottom: 10px;
+    }
+
+    .search-container {
+      position: relative;
+      width: 90%;
+      max-width: 500px;
+      margin: 10px auto;
+    }
+
+    .search-container input {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 30px;
+      border: 1px solid #bfa14a;
+      outline: none;
+      font-size: 1rem;
+      background: rgba(255,255,255,0.1);
+      color: white;
+    }
+
+    .suggestions {
+      position: absolute;
+      top: 48px;
+      width: 100%;
+      background: rgba(0,0,0,0.8);
+      border-radius: 10px;
+      max-height: 200px;
+      overflow-y: auto;
+      display: none;
+      z-index: 100;
+    }
+
+    .suggestion {
+      padding: 10px;
+      cursor: pointer;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .suggestion:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      width: 90%;
+      max-width: 1200px;
+      margin: 20px 0 60px 0;
+    }
+
+    .poem-card {
+      background: rgba(255,255,255,0.08);
+      border-radius: 15px;
+      padding: 16px;
+      backdrop-filter: blur(6px);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .poem-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+      border: 1px solid #bfa14a;
+    }
+
+    .poem-card img {
+      width: 100%;
+      height: 180px;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .poem-card h2 {
+      font-size: 1.2rem;
+      color: #ffd700;
+      margin-bottom: 5px;
+    }
+
+    .poem-card p {
+      white-space: pre-line;
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+    }
+
+    .poem-card small {
+      color: #ccc;
+    }
+
+    .play-btn {
+      background: #e91e63;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .play-btn:hover {
+      background: #bfa14a;
+      color: #000;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      color: #bfa14a;
+      background: rgba(255,255,255,0.1);
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎙️ Mashairi ya AGREY</h1>
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Tafuta shairi...">
+      <div id="suggestions" class="suggestions"></div>
+    </div>
+  </header>
+
+  <main id="poemContainer"></main>
+
+  <footer>© <span id="year"></span> AGREY | Sauti na Mashairi ya Kisasa</footer>
+
+  <script>
+    let poems = [];
+
+    async function loadPoems() {
+      try {
+        const res = await fetch('mashairi.json');
+        poems = await res.json();
+        renderPoems(poems);
+      } catch (err) {
+        console.error("Tatizo kusoma mashairi.json:", err);
+      }
+    }
+
+    function renderPoems(list) {
+      const container = document.getElementById('poemContainer');
+      container.innerHTML = "";
+
+      list.forEach(poem => {
+        const card = document.createElement('div');
+        card.className = "poem-card";
+        card.innerHTML = `
+          <img src="${poem.image || 'images/default.jpg'}" alt="${poem.title}">
+          <h2>${poem.title}</h2>
+          <small>na ${poem.author}</small>
+          <p>${poem.text}</p>
+          <button class="play-btn" onclick="playAudio('${poem.audio}')">▶ Sikiliza</button>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function playAudio(url) {
+      const audio = new Audio(url);
+      audio.play();
+    }
+
+    document.getElementById("searchInput").addEventListener("input", e => {
+      const q = e.target.value.toLowerCase().trim();
+      const suggestionsDiv = document.getElementById("suggestions");
+
+      const matches = poems.filter(p => p.title.toLowerCase().includes(q));
+      if (q && matches.length) {
+        suggestionsDiv.style.display = "block";
+        suggestionsDiv.innerHTML = matches
+          .map(m => `<div class='suggestion'>${m.title}</div>`)
+          .join("");
+      } else {
+        suggestionsDiv.style.display = "none";
+      }
+
+      // Live filtering
+      const filtered = poems.filter(p => 
+        p.title.toLowerCase().includes(q) || 
+        p.text.toLowerCase().includes(q)
+      );
+      renderPoems(filtered);
+    });
+
+    document.getElementById("suggestions").addEventListener("click", e => {
+      if (e.target.classList.contains("suggestion")) {
+        const title = e.target.textContent;
+        document.getElementById("searchInput").value = title;
+        const result = poems.filter(p => p.title === title);
+        renderPoems(result);
+        document.getElementById("suggestions").style.display = "none";
+      }
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+    loadPoems();
+  </script>
+</body>
+</html>

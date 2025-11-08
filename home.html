@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Missing You Babe — Home</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+  body {
+    background: url('https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
+    animation: slowZoom 60s infinite alternate;
+    display: flex; 
+    flex-direction: column;
+    color: #fff;
+  }
+  @keyframes slowZoom { 0% { transform: scale(1); } 100% { transform: scale(1.05); } }
+  nav { display: flex; justify-content: center; background: rgba(0,0,0,0.4); padding: 10px 0; position: sticky; top: 0; z-index: 10; }
+  nav a { color: #fff; text-decoration: none; margin: 0 20px; font-weight: 600; transition: color 0.3s; }
+  nav a:hover { color: #ff66b2; }
+  .center-content { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; }
+  .counter { font-size: 36px; font-weight: bold; background: rgba(0,0,0,0.5); padding: 20px 40px; border-radius: 16px; margin-bottom: 30px; box-shadow: 0 0 20px rgba(255,0,128,0.5); }
+  .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 40px; }
+  .gallery img { width: 200px; height: 150px; object-fit: cover; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.6); transition: transform 0.3s; cursor: pointer; }
+  .gallery img:hover { transform: scale(1.05); }
+  footer { text-align: center; padding: 15px 0; background: rgba(0,0,0,0.4); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="mashairi.html">Mashairi</a>
+  <a href="comingsoon.html">Kumbukumbu</a>
+  <a href="comingsoon.html">MZIKI YETU</a>
+  <a href="comingsoon.html">Sauti Zetu</a>
+  <a href="gallery.html">Gallery Yetu</a>
+</nav>
+
+<div class="center-content">
+    <h1>TOTOOO hizi n siku za mapenz yetu </h1>
+  <div class="counter" id="loveCounter">0 Days 0 Hours 0 Minutes 0 Seconds</div>
+  <h1>Welcome to Our Love Hub 💖</h1>
+  <p>Here you can relive our memories, songs, and beautiful moments together.</p>
+
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=400&q=80" alt="Gallery Image 1">
+    <img src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde?auto=format&fit=crop&w=400&q=80" alt="Gallery Image 2">
+    <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=400&q=80" alt="Gallery Image 3">
+    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80" alt="Gallery Image 4">
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 Our Love Story ❤️
+</footer>
+
+<script>
+  // Count-up from 3 Nov 2024 including hours, minutes, seconds
+  const startDate = new Date('2024-11-03T00:00:00');
+  const counterEl = document.getElementById('loveCounter');
+
+  function updateCounter() {
+    const now = new Date();
+    let diff = Math.floor((now - startDate) / 1000); // total seconds
+
+    const days = Math.floor(diff / (3600*24));
+    diff -= days*3600*24;
+    const hours = Math.floor(diff / 3600);
+    diff -= hours*3600;
+    const minutes = Math.floor(diff / 60);
+    const seconds = diff - minutes*60;
+
+    counterEl.textContent = `${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`;
+  }
+
+  updateCounter();
+  setInterval(updateCounter, 1000);
+</script>
+
+</body>
+</html>
